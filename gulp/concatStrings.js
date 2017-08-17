@@ -3,8 +3,6 @@ var File = require('vinyl');
 var path = require('path');
 var fs = require('fs');
 
-var gutil = require('gulp-util');
-
 var concatStrings = function(fileName, options) {
   var opt = Object.assign({},concatStrings.defaultOpt, options)
   var stream = through.obj(function(file, enc, cb) {
@@ -28,10 +26,8 @@ var concatStrings = function(fileName, options) {
 concatStrings.getFileContent = function(options, cb) {
   var folder = path.dirname(require.resolve('parallelio-strings/package.json'))+'/strings';
   var strings = {};
-  gutil.log('folder : '+folder);
   fs.readdir(folder, (err, files) => {
     files.forEach(file => {
-      gutil.log('file : '+file);
       var basename = path.basename(file, '.json');
       strings[basename] = require('parallelio-strings/strings/'+file);
     });
