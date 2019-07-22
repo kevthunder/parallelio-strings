@@ -1,6 +1,6 @@
 {
   "name": "parallelio-strings",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Strings for Parallelio",
   "main": "strings.js",
   "repository": {
